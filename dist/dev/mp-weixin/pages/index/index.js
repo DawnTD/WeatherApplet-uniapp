@@ -30,6 +30,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         url: "/pages/search/search"
       });
     };
+    const scroll = (e) => {
+      console.log("e", e);
+    };
     common_vendor.onMounted(() => {
       console.log("Mounted");
       changAreacode();
@@ -44,7 +47,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         e: common_vendor.t(data.list.realtime.feels_like),
         f: common_vendor.t(data.list.realtime.wind_class),
         g: common_vendor.t(data.list.realtime.rh),
-        h: common_vendor.t(data.list.realtime.pressure)
+        h: common_vendor.t(data.list.realtime.pressure),
+        i: common_vendor.f(15, (item, k0, i0) => {
+          return {};
+        }),
+        j: common_vendor.o(scroll)
       };
     };
   }

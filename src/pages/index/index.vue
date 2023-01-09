@@ -28,6 +28,41 @@
       </view>
       <view>未来两小时不会降雨</view>
     </view>
+    <!-- 15天预报 start -->
+    <view>
+      <view class="w_scroll">
+        <view class="w-header">
+          <text class="o_text">15天预报</text>
+          <view style="margin-right: 20px">
+            <text style="margin-right: 20px">07:04</text>
+            <text>17:29</text>
+          </view>
+        </view>
+        <scroll-view
+          class="scroll-view_H"
+          scroll-x="true"
+          @scroll="scroll"
+          scroll-left="120"
+          enable-flex="true"
+        >
+          <view
+            v-for="item in 15"
+            id="demo1"
+            class="scroll-view-item_H uni-bg-red"
+          >
+            <view>周日</view>
+            <view>01/08</view>
+            <view>晴</view>
+            <view>20°</view>
+            <view>4°</view>
+            <view>多云</view>
+            <view>东北风</view>
+            <view>2级</view>
+            <view>良</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -58,6 +93,9 @@ const btn = () => {
   uni.redirectTo({
     url: '/pages/search/search'
   })
+}
+const scroll = (e: any) => {
+  console.log('e', e)
 }
 onMounted(() => {
   console.log('Mounted')
@@ -105,4 +143,40 @@ onMounted(() => {
     }
   }
 }
+.w_scroll {
+  margin-top: 80rpx;
+  .w-header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #f4f4f4;
+    .o_text {
+      margin-left: 22rpx;
+      font-size: 34rpx;
+      font-weight: 900;
+    }
+  }
+}
+.scroll-view_H {
+  white-space: nowrap;
+  width: 100%;
+  height: 900rpx;
+  display: flex;
+  margin-top: 30rpx;
+}
+.scroll-view-item_H {
+  display: flex;
+  flex-direction: column;
+  gap: 40rpx;
+  width: 20%;
+  height: 900rpx;
+  text-align: center;
+  font-size: 36rpx;
+  padding-left: 22rpx;
+  padding-right: 22rpx;
+}
+// .uni-bg-red {
+//   background-color: red;
+// }
 </style>
