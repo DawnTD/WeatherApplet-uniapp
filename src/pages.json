@@ -5,8 +5,41 @@
       "style": {
         "navigationBarTitleText": "uni-app"
       }
+    },
+    {
+      "path": "pages/footprint/footprint",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
     }
   ],
+  "tabBar": {
+    "color": "#535353",
+    "selectedColor": "#2f92f9",
+    "fontSize": "12px",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/png/homeH.png",
+        "selectedIconPath": "static/png/home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/footprint/footprint",
+        "iconPath": "static/png/footprintH.png",
+        "selectedIconPath": "static/png/footprint.png",
+        "text": "足迹"
+      }
+    ]
+  },
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",

@@ -5,7 +5,7 @@
     "include": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "postcss": false,
     "minified": false,
@@ -19,7 +19,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.29.1",
-  "appid": "touristappid",
+  "appid": "wx89b80535ba0c4ee9",
   "projectname": "",
   "condition": {},
   "editorSetting": {

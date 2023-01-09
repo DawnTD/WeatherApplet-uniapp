@@ -1,0 +1,1 @@
+<view class="w data-v-cdfa925e"><view class="data-v-cdfa925e"><text class="data-v-cdfa925e">猜你想找</text><view class="flex data-v-cdfa925e"><button wx:for="{{a}}" wx:for-item="item" wx:key="c" class="btn data-v-cdfa925e" bindtap="{{item.b}}">{{item.a}}</button></view></view></view>
