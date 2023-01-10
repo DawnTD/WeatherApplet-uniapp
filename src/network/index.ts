@@ -1,7 +1,7 @@
 import requestClass from './request'
 import qs from 'qs'
 
-const baseUrl = 'https://eolink.o.apispace.com/456456/weather/v001'
+const baseUrl = 'https://eolink.o.apispace.com/456456'
 
 const Request = new requestClass()
 

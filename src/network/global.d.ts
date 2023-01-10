@@ -21,3 +21,4 @@ interface initBody {
 
 declare const wx: any
 declare module 'qs'
+

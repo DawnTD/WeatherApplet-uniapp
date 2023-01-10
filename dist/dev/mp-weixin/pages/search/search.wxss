@@ -34,3 +34,19 @@
 .flex .btn.data-v-cdfa925e {
   width: 33%;
 }
+.search-result.data-v-cdfa925e {
+  display: flex;
+  flex-direction: column;
+}
+.search-result-text.data-v-cdfa925e {
+  padding: 50rpx 30rpx;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+}
+.example-body.data-v-cdfa925e {
+  display: block;
+  padding: 0px;
+}
+.uni-mt-10.data-v-cdfa925e {
+  margin-top: 10px;
+}

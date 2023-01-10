@@ -1,5 +1,7 @@
 <template>
-  <view>
+  <view
+    :class="[isActiveq === data.list.realtime.text ? header_bg_q : header_bg_y]"
+  >
     <!-- header start -->
     <view class="header-title">
       <view @click="btn" class="header-navigator">
@@ -26,7 +28,44 @@
         <view>湿度{{ data.list.realtime.rh }}%</view>
         <view>气压{{ data.list.realtime.pressure }}hPa</view>
       </view>
-      <view>未来两小时不会降雨</view>
+      <view class="wl">未来两小时不会降雨</view>
+    </view>
+    <!-- 今明天气 -->
+    <view class="j_w">
+      <view class="j_left">
+        <view class="j_left_1">
+          <view>
+            <text>今天</text>
+            <text>轻度</text>
+          </view>
+          <view>
+            <text>17°</text>
+            /
+            <text>6°</text>
+          </view>
+        </view>
+        <view class="j_left_2">
+          <text>晴</text>
+          <text>太阳</text>
+        </view>
+      </view>
+      <view class="j_left">
+        <view class="j_left_1">
+          <view>
+            <text>明天</text>
+            <text>良</text>
+          </view>
+          <view>
+            <text>19°</text>
+            /
+            <text>8°</text>
+          </view>
+        </view>
+        <view class="j_left_2">
+          <text>多云转阵雨</text>
+          <text>雨</text>
+        </view>
+      </view>
     </view>
     <!-- 15天预报 start -->
     <view>
@@ -75,6 +114,10 @@ const store = indexStore()
 const data = reactive({
   list: [] as any
 })
+const isActiveq = ref('晴')
+const header_bg_q = ref('header_bg_q')
+const header_bg_y = ref('header_bg_y')
+
 const areacode = computed(() => {
   return store.areacode
 })
@@ -105,8 +148,17 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+.header_bg_q {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+.header_bg_y {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+.header_bg_yun {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
 .header-title {
-  margin-top: 40rpx;
+  padding-top: 40rpx;
   .header-navigator {
     display: flex;
     justify-content: center;
@@ -141,6 +193,44 @@ onMounted(() => {
     .size_1 {
       font-size: 70rpx;
     }
+  }
+  .wl {
+    width: 100%;
+    padding: 20rpx 10rpx;
+    // background-color: #d1d5db;
+    text-align: center;
+  }
+}
+.j_w {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 200rpx;
+  padding: 30rpx 20rpx;
+  // background-color: #f9fafb;
+  .j_left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20rpx;
+    width: 45%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-right: 1px solid #fff;
+    .j_left_1 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .j_left_2 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+  .j_right {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
   }
 }
 .w_scroll {

@@ -11,6 +11,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const data = common_vendor.reactive({
       list: []
     });
+    const isActiveq = common_vendor.ref("晴");
+    const header_bg_q = common_vendor.ref("header_bg_q");
+    const header_bg_y = common_vendor.ref("header_bg_y");
     const areacode = common_vendor.computed$1(() => {
       return store.areacode;
     });
@@ -51,7 +54,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         i: common_vendor.f(15, (item, k0, i0) => {
           return {};
         }),
-        j: common_vendor.o(scroll)
+        j: common_vendor.o(scroll),
+        k: common_vendor.n(isActiveq.value === data.list.realtime.text ? header_bg_q.value : header_bg_y.value)
       };
     };
   }

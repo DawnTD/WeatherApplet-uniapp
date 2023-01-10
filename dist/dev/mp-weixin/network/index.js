@@ -1,7 +1,7 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
 const network_request = require("./request.js");
-const baseUrl = "https://eolink.o.apispace.com/456456/weather/v001";
+const baseUrl = "https://eolink.o.apispace.com/456456";
 const Request = new network_request.requestClass();
 Request.interceptors.request((request) => {
   if (request.header.contentType) {

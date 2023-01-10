@@ -1,5 +1,5 @@
 import service from '../network/index'
-import { nowParam } from '../type'
+import { cityParam, nowParam } from '../type'
 
 // json形式
 const options = {
@@ -24,5 +24,8 @@ const options = {
 // }
 
 export function getWeatherApi(data: nowParam) {
-  return service.get('/now', data)
+  return service.get('/weather/v001/now', data)
+}
+export function getCityApi(data: cityParam) {
+  return service.get('/function/v001/city', data)
 }

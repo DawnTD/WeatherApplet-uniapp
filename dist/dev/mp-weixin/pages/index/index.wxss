@@ -23,8 +23,17 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.header_bg_q.data-v-83a5a03c {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+.header_bg_y.data-v-83a5a03c {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+.header_bg_yun.data-v-83a5a03c {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
 .header-title.data-v-83a5a03c {
-  margin-top: 40rpx;
+  padding-top: 40rpx;
 }
 .header-title .header-navigator.data-v-83a5a03c {
   display: flex;
@@ -57,6 +66,42 @@
 }
 .weather .weather-1 .size_1.data-v-83a5a03c {
   font-size: 70rpx;
+}
+.weather .wl.data-v-83a5a03c {
+  width: 100%;
+  padding: 20rpx 10rpx;
+  text-align: center;
+}
+.j_w.data-v-83a5a03c {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 200rpx;
+  padding: 30rpx 20rpx;
+}
+.j_w .j_left.data-v-83a5a03c {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  width: 45%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-right: 1px solid #fff;
+}
+.j_w .j_left .j_left_1.data-v-83a5a03c {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.j_w .j_left .j_left_2.data-v-83a5a03c {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.j_w .j_right.data-v-83a5a03c {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
 }
 .w_scroll.data-v-83a5a03c {
   margin-top: 80rpx;
