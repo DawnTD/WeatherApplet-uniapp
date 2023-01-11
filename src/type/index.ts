@@ -6,3 +6,7 @@ export interface cityParam {
   items: string,
   area: string
 }
+export interface DayParam {
+  days: string,
+  areacode: string
+}

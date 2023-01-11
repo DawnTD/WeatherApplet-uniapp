@@ -9,7 +9,8 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   setup(__props) {
     const store = stores_index.indexStore();
     const data = common_vendor.reactive({
-      list: []
+      list: [],
+      day: []
     });
     const isActiveq = common_vendor.ref("晴");
     const header_bg_q = common_vendor.ref("header_bg_q");
@@ -20,6 +21,10 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     const param = common_vendor.reactive({
       areacode: "101010100"
     });
+    const dayParms = common_vendor.reactive({
+      days: "15",
+      areacode: param.areacode
+    });
     const changAreacode = () => {
       param.areacode = areacode.value;
     };
@@ -27,6 +32,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       let res = await api_index.getWeatherApi(param);
       console.log("res", res);
       data.list = res.data.result;
+    };
+    const getDay = async () => {
+      let res = await api_index.getDayApi(dayParms);
+      console.log("resDay", res);
+      data.day = res.data.result.daily_fcsts;
     };
     const btn = () => {
       common_vendor.index.redirectTo({
@@ -40,6 +50,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       console.log("Mounted");
       changAreacode();
       getWeather();
+      getDay();
     });
     return (_ctx, _cache) => {
       return {
@@ -51,8 +62,17 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         f: common_vendor.t(data.list.realtime.wind_class),
         g: common_vendor.t(data.list.realtime.rh),
         h: common_vendor.t(data.list.realtime.pressure),
-        i: common_vendor.f(15, (item, k0, i0) => {
-          return {};
+        i: common_vendor.f(data.day, (item, k0, i0) => {
+          return {
+            a: common_vendor.t(item.week),
+            b: common_vendor.t(item.date.substr(-5)),
+            c: common_vendor.t(item.text_day),
+            d: common_vendor.t(item.high),
+            e: common_vendor.t(item.low),
+            f: common_vendor.t(item.text_night),
+            g: common_vendor.t(item.wd_day),
+            h: common_vendor.t(item.wc_day)
+          };
         }),
         j: common_vendor.o(scroll),
         k: common_vendor.n(isActiveq.value === data.list.realtime.text ? header_bg_q.value : header_bg_y.value)

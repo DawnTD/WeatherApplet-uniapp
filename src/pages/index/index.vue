@@ -85,18 +85,18 @@
           enable-flex="true"
         >
           <view
-            v-for="item in 15"
+            v-for="item in data.day"
             id="demo1"
             class="scroll-view-item_H uni-bg-red"
           >
-            <view>周日</view>
-            <view>01/08</view>
-            <view>晴</view>
-            <view>20°</view>
-            <view>4°</view>
-            <view>多云</view>
-            <view>东北风</view>
-            <view>2级</view>
+            <view>{{ item.week }}</view>
+            <view>{{ item.date.substr(-5) }}</view>
+            <view>{{ item.text_day }}</view>
+            <view>{{ item.high }}</view>
+            <view>{{ item.low }}</view>
+            <view>{{ item.text_night }}</view>
+            <view>{{ item.wd_day }}</view>
+            <view>{{ item.wc_day }}</view>
             <view>良</view>
           </view>
         </scroll-view>
@@ -107,12 +107,13 @@
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
-import { getWeatherApi } from '../../api'
-import { nowParam } from '../../type'
+import { getDayApi, getWeatherApi } from '../../api'
+import { DayParam, nowParam } from '../../type'
 import { indexStore } from '../../stores/index'
 const store = indexStore()
 const data = reactive({
-  list: [] as any
+  list: [] as any,
+  day: [] as any
 })
 const isActiveq = ref('晴')
 const header_bg_q = ref('header_bg_q')
@@ -124,6 +125,10 @@ const areacode = computed(() => {
 const param = reactive<nowParam>({
   areacode: '101010100'
 })
+const dayParms = reactive<DayParam>({
+  days: '15',
+  areacode: param.areacode
+})
 const changAreacode = () => {
   param.areacode = areacode.value
 }
@@ -131,6 +136,11 @@ const getWeather = async () => {
   let res = await getWeatherApi(param)
   console.log('res', res)
   data.list = res.data.result
+}
+const getDay = async () => {
+  let res = await getDayApi(dayParms)
+  console.log('resDay', res)
+  data.day = res.data.result.daily_fcsts
 }
 const btn = () => {
   uni.redirectTo({
@@ -144,6 +154,7 @@ onMounted(() => {
   console.log('Mounted')
   changAreacode()
   getWeather()
+  getDay()
 })
 </script>
 
